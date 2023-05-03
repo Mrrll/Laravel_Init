@@ -45,17 +45,21 @@ class Header extends Component
         $this->links_auths = [
             [
                 'name' => 'Sign In',
+                'slug' => 'sign-in',
                 'route' => '',
                 'active' => '',
                 'icono' => '',
-                'icono_color' => ''
+                'icono_color' => '',
+                'type' => 'modal'
             ],
             [
                 'name' => 'Sign Up',
+                'slug' => 'sign-up',
                 'route' => '',
                 'active' => '',
                 'icono' => '',
-                'icono_color' => ''
+                'icono_color' => '',
+                'type' => 'modal'
             ],
     ];
     }

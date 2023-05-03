@@ -34,11 +34,9 @@
                     <ul class="navbar-nav">
                         @foreach ($links_auths as $link_auth)
                             <li class="nav-item">
-                                <a class="nav-link {{ $link_auth['active'] }}" aria-current="page"
-                                    href="{{ $link_auth['route'] }}">
-                                    <i class="{{ $link_auth['icono'] }}" style="color: {{$link_auth['icono_color']}};"></i>
-                                    {{ $link_auth['name'] }}
-                                </a>
+                                <x-dom.button type="{{$link_auth['type']}}" name="{{$link_auth['slug']}}">
+                                    {{$link_auth['name']}}
+                                </x-dom.button>
                             </li>
                         @endforeach
                     </ul>
