@@ -9,6 +9,7 @@
 - [Componente card](#item5)
 - [Componente form](#item6)
 - [Componente input](#item7)
+- [Componente toast](#item8)
 
 **`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
@@ -254,6 +255,41 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ```php
 <x-dom.input type="text" label="Username" name="username" id="username" placeholder="Username" readonly="readonly" disabled="disabled" class="mb-3" :value="old('username')" datarole="tagsinput"></x-dom.input>
+```
+
+[Subir](#top)
+
+<a name="item8"></a>
+
+## Componente toast
+
+### Llamada al Componente
+
+```php
+<x-messages.toast></x-messages.toast>
+```
+
+### Usar Componente
+
+>Atributos del toast.
+
+1. Tipo del toast => `type`
+
+**Añadiendo `type=` en el elemento si no declaras la propiedad se creara por defecto el `type='info'`.**
+
+>Propiedades con nombre del toast.
+
+1. Header => `title`
+
+>Ejemplo del input.
+
+```php
+<x-messages.toast type="danger">
+    <x-slot:title>
+        Mensaje
+    </x-slot:title>
+    Mensaje del toast
+</x-messages.toast>
 ```
 
 [Subir](#top)

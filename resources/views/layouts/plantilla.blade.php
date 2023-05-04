@@ -9,6 +9,7 @@
 </head>
 <body class="body">
     <x-layouts.header></x-layouts.header>
+    @include('messages.toast')
     @yield('content')
     <x-layouts.footer></x-layouts.footer>
 </body>
