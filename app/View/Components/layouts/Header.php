@@ -20,8 +20,8 @@ class Header extends Component
         $this->links_pages = [
             [
                 'name' => 'Welcome',
-                'route' => '',
-                'active' => '',
+                'route' => route('welcome'),
+                'active' => request()->routeIs('welcome') ? 'active disabled' : '',
                 'icono' => '',
                 'icono_color' => ''
             ],
@@ -35,7 +35,7 @@ class Header extends Component
         ];
         $this->links_pages_auths = [
             [
-                'name' => 'Home',
+                'name' => 'Dashboard',
                 'route' => '',
                 'active' => '',
                 'icono' => '',
@@ -46,20 +46,22 @@ class Header extends Component
             [
                 'name' => 'Sign In',
                 'slug' => 'sign-in',
-                'route' => '',
-                'active' => '',
+                'route' => request()->routeIs('welcome') ? '' : route('login'),
+                'active' => request()->routeIs('login') ? 'active disabled' : '',
                 'icono' => '',
                 'icono_color' => '',
-                'type' => 'modal'
+                'type' => request()->routeIs('welcome') ? 'modal' : 'link',
+                'class' => 'nav-link'
             ],
             [
                 'name' => 'Sign Up',
                 'slug' => 'sign-up',
-                'route' => '',
-                'active' => '',
+                'route' => request()->routeIs('welcome') ? '' : route('register'),
+                'active' => request()->routeIs('register') ? 'active disabled' : '',
                 'icono' => '',
                 'icono_color' => '',
-                'type' => 'modal'
+                'type' => request()->routeIs('welcome') ? 'modal' : 'link',
+                'class' => 'nav-link'
             ],
     ];
     }

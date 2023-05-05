@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+require('auth.php');
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+// Rutas Protegidas
+
+Route::group(['middleware' => ['auth', 'auth.session']],function () {
+        // Dashboard
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    }
+);

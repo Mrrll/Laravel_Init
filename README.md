@@ -117,6 +117,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 1. Header => `title`
 2. Footer => `footer`
 
+>Atributos con props del modal para formulario.
+
+1. Header => `route`
+2. Footer => `method`
+
 >Atributos de las propiedades con nombre del modal.
 
 1. Estilos Css => `class`
@@ -169,7 +174,12 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 >Atributos de las propiedades con nombre del card.
 
-1.Estilos Css => `class`
+1. Estilos Css => `class`
+
+>Atributos con props del card para formulario.
+
+1. Header => `route`
+2. Footer => `method`
 
 >Ejemplo del card.
 

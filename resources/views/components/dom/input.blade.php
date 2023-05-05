@@ -16,3 +16,15 @@
         {{isset($disabled) ? $disabled : ''}}
         {{ $attributes->merge(['class' => "form-control $class"]) }}>
 @endswitch
+@empty($errors->getBags())
+    @error($name)
+        <small id="message_errors" class="text-danger">*{{ $message }}</small>
+    @enderror
+@else
+    @foreach ($errors->getBags() as $key => $val)
+        @empty($errors->$key->get($name))
+        @else
+            <small id="message_errors" class="text-danger">*{{ $errors->$key->first($name) }}</small>
+        @endempty
+    @endforeach
+@endempty

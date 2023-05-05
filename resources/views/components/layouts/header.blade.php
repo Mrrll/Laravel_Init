@@ -14,9 +14,9 @@
                     @auth
                         @foreach ($links_pages_auths as $link_page_auth)
                             <li class="nav-item">
-                                <a class="nav-link {{ $link_page['active'] }}" aria-current="page"
-                                    href="{{ $link_page['route'] }}">
-                                    <i class="{{ $link_page['icono'] }}" style="color: {{$link_page['icono_color']}};"></i> {{ $link_page['name'] }}</a>
+                                <a class="nav-link {{ $link_page_auth['active'] }}" aria-current="page"
+                                    href="{{ $link_page_auth['route'] }}">
+                                    <i class="{{ $link_page_auth['icono'] }}" style="color: {{$link_page_auth['icono_color']}};"></i> {{ $link_page_auth['name'] }}</a>
                             </li>
                         @endforeach
                     @else
@@ -34,7 +34,7 @@
                     <ul class="navbar-nav">
                         @foreach ($links_auths as $link_auth)
                             <li class="nav-item">
-                                <x-dom.button type="{{$link_auth['type']}}" name="{{$link_auth['slug']}}">
+                                <x-dom.button type="{{$link_auth['type']}}" name="{{$link_auth['slug']}}" class="{{ $link_auth['active'] }} {{$link_auth['class']}}" :route="$link_auth['route']">
                                     {{$link_auth['name']}}
                                 </x-dom.button>
                             </li>

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -41,4 +44,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * This is a PHP function that returns an Attribute object with a set method that hashes a password
+     * using the Hash::make method.
+     *
+     * @return Attribute A new instance of the Attribute class with a set function that takes a value
+     * and returns the hashed version of that value using Laravel's Hash::make() method.
+     */
+    // protected function password(): Attribute {
+    //     return new Attribute(
+    //         set:function($value){
+    //             return Hash::make($value);
+    //         }
+    //     );
+    // }
+    protected function password(): Attribute
+    {
+        return Attribute::make(
+            set: fn (string $value) => Hash::make($value),
+        );
+    }
 }

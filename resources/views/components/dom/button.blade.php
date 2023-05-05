@@ -1,6 +1,6 @@
 @switch($type)
     @case('link')
-        <a href="{{$route ?? '#'}}" {{ $attributes->merge(['class' => "$class"]) }}></a>
+        <a href="{{$route ?? '#'}}" {{ $attributes->merge(['class' => "$class"]) }}> {{$slot}} </a>
         @break
     @case('modal')
         <button type="button" {{ $attributes->merge(['class' => "btn $class"]) }} data-bs-toggle="modal" data-bs-target="#{{$name}}">
