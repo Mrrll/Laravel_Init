@@ -3,3 +3,4 @@ import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 import 'jquery-ui/dist/jquery-ui';
 import './bootstrap-tagsinput';
+import './aside'

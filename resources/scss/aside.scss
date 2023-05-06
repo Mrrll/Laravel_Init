@@ -1,0 +1,129 @@
+.aside {
+    background-color: rgb(36, 36, 36);
+    position: relative;
+    width: 80px;
+    transition: all 500ms ease;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+    box-sizing: border-box;
+}
+#btn_menu {
+    display: none;
+}
+#btn_menu:checked ~ .aside {
+    width: 250px;
+}
+.menu-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+}
+.menu-header .btn-close-menu {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    transition: all 300ms ease;
+}
+.menu-header .btn-menu {
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.menu-header .btn-close-menu i {
+    color: rgb(213, 211, 211);
+}
+.menu-header .btn-menu i {
+    color: rgb(213, 211, 211);
+}
+.menu-header .profile {
+    display: none;
+    align-items: center;
+    margin-left: 10px;
+    transition: all 300ms ease;
+}
+.menu-header .profile div {
+    padding: 0.5em;
+}
+.menu-header .profile span {
+    display:block;
+    color: rgb(213, 211, 211);
+}
+.menu-header .profile a {
+    text-decoration: none;
+    color: rgb(213, 211, 211);
+    transition: all 300ms ease;
+}
+.menu-content ul {
+    padding: 0 !important;
+}
+.menu-content .list-menu {
+    display: block;
+}
+.menu-content .link-menu.active {
+    background-color: rgb(60, 60, 60);
+    border-left: 2px solid white;
+    color: white;
+
+}
+.menu-content .link-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em;
+    text-decoration: none;
+    color: rgb(213, 211, 211);
+    border-left: 2px solid transparent;
+    transition: all 500ms ease;
+}
+.menu-content .link-menu:hover {
+    color: rgb(213, 211, 211);
+    background-color: rgb(60, 60, 60);
+    border-left: 2px solid rgb(213, 211, 211);
+
+}
+.menu-content span {
+    display: none;
+    margin-left: 20px;
+    transition: all 200ms ease;
+}
+.menu-content .menu-dropdown {
+    display: block !important;
+}
+.menu-content .dropend .link-menu {
+    padding-left: 1.01em;
+}
+.menu-footer ul {
+    padding: 0 !important;
+}
+.menu-footer .list-menu {
+    display: block;
+}
+.menu-footer .link-menu.active {
+    background-color: rgb(60, 60, 60);
+    border-left: 2px solid white;
+    color: white;
+    transition: all 400ms ease;
+}
+.menu-footer .link-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em;
+    text-decoration: none;
+    color: rgb(213, 211, 211);
+    border-left: 2px solid transparent;
+}
+.menu-footer .link-menu:hover {
+    background-color: rgb(60, 60, 60);
+    border-left: 2px solid rgb(213, 211, 211);
+    transition: all 400ms ease;
+}
+.menu-footer span {
+    display: none;
+    margin-left: 20px;
+    color: rgb(213, 211, 211);
+    transition: all 300ms ease;
+}

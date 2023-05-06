@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -54,8 +55,37 @@ class AuthenticationController extends Controller
     {
         return view('auth.login');
     }
-    public function Authorization(Type $var = null)
+    public function Authorization(LoginRequest $request)
     {
-        # code...
+        try {
+            $credentials = $request->safe()->only('email', 'password');
+            if (Auth::attempt($credentials, $request->safe()->only('remember'))) {
+                $request->session()->regenerate();
+                return redirect()->intended('dashboard');
+            }
+            return redirect()
+                ->back()
+                ->with('message', [
+                    'type' => 'danger',
+                    'title' => 'Error !',
+                    'message' => 'The credentials are wrong!!!',
+                ]);
+        } catch (\Throwable $th) {
+            return back()->with('message', [
+                'type' => 'danger',
+                'title' => 'Error !',
+                'message' =>
+                    'An error has occurred check the data and try again if it is not solved contact your administrator.',
+            ]);
+        }
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('welcome');
     }
 }

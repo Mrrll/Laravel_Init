@@ -5,7 +5,7 @@
 @section('content')
     <main class="container-fluid main-dashboard">
         <h1>Hola mundo</h1>
-        <x-dom.modal name="sign-in" static="static" header="header" class="modal-dialog-centered">
+        <x-dom.modal name="sign-in" static="static" header="header" class="modal-dialog-centered" :route="route('login')">
                 <x-slot:title>
                     <h1 class="modal-title fs-5" id="Label">Sign In</h1>
                     <x-dom.button type="closemodal" class="btn-close"></x-dom.button>
