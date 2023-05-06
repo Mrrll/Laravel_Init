@@ -62,19 +62,25 @@
                 </a>
             </li>
             <li class="list-menu dropend">
-                    <a type="button" class="link-menu dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <x-dom.button type="dropdown" class="link-menu">
                         <x-images.dashboard.customers />
                         <span>
                             Lo que sea
                         </span>
-                    </a>
+                    </x-dom.button>
+                    {{-- <a type="button" class="link-menu dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <x-images.dashboard.customers />
+                        <span>
+                            Lo que sea
+                        </span>
+                    </a> --}}
                     <ul class="dropdown-menu">
                         <li>item-1</li>
                         <li>item-2</li>
                         <li>item-3</li>
                     </ul>
             </li>
-            
+
         </ul>
     </div>
     <div class="menu-footer">

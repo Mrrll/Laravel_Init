@@ -57,6 +57,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2. Modal => `modal`
 3. Button => `button`
 4. Close Modal => `closemodal`
+4. Listas desplegables => `dropdown`
+4. Botón Colapsar => `collapse`
 
 **Añadiendo `type=` en el elemento si no declaras la propiedad se creara por defecto el `type='button'`.**
 
@@ -88,8 +90,33 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     Texto a mostrar
 </x-dom.button>
 ```
+>Ejemplo del botón dropdown.
 
-**`Nota :` Con la propiedad `type='link y type='closemodal'` no tiene ninguna clase añadida todas las demás incluyen la clase `btn`.**
+```php
+<x-dom.button type="dropdown" class="btn btn-primary">
+    Texto a mostrar
+</x-dom.button>
+<ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+```
+
+>Ejemplo del botón collapse.
+
+```php
+<x-dom.button type="collapse" class="btn btn-primary" name="nombre">
+    Texto a mostrar
+</x-dom.button>
+<div class="collapse" id="name">
+  <div class="card card-body">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+  </div>
+</div>
+```
+
+**`Nota :` Con la propiedad `type='link y type='closemodal'` no tiene ninguna clase añadida y el `type='dropdown'` solo contiene la clase `dropdown-toggle` todas las demás incluyen la clase `btn`.**
 
 [Subir](#top)
 
