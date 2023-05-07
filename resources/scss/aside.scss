@@ -66,7 +66,10 @@
     background-color: rgb(60, 60, 60);
     border-left: 2px solid white;
     color: white;
-
+}
+.menu-content .link-menu.disabled {
+    pointer-events: none;
+    cursor: default;
 }
 .menu-content .link-menu {
     display: flex;
@@ -94,6 +97,23 @@
 }
 .menu-content .dropend .link-menu {
     padding-left: 1.01em;
+}
+.menu-content .list-items {
+    background-color: rgb(36, 36, 36);
+}
+.menu-content .list-items a {
+    color: rgb(213, 211, 211);
+}
+.menu-content .list-items a:hover {
+    color: rgb(213, 211, 211);
+    background-color: rgb(60, 60, 60);
+}
+.menu-content ul.collapse > li a {
+    padding: 0.4em;
+    padding-left: 1em;
+}
+.menu-content ul.collapse > li:last-child {
+    border-bottom: 1px solid white;
 }
 .menu-footer ul {
     padding: 0 !important;

@@ -17,77 +17,35 @@
         <hr class="text-white">
     </div>
     <div class="menu-content">
-
         <ul>
-            <li class="list-menu">
-                <a href="#" class="link-menu active">
-                    <x-images.dashboard.dashboard />
-                    <span>
-                        Dashboard
-                    </span>
-                </a>
-            </li>
-            <li class="list-menu">
-
-                <a href="#" class="link-menu">
-                    <x-images.dashboard.articles />
-                    <span>
-                        Articles
-                    </span>
-                </a>
-            </li>
-            <li class="list-menu">
-                <a href="#" class="link-menu">
-                    <x-images.dashboard.customers />
-                    <span>
-                        Customers
-                    </span>
-
-                </a>
-            </li>
-            <li class="list-menu">
-                <a href="#" class="link-menu">
-                    <x-images.dashboard.delivery_notes />
-                    <span>
-                        Delivery notes
-                    </span>
-                </a>
-            </li>
-            <li class="list-menu">
-                <a href="#" class="link-menu">
-                    <x-images.dashboard.invoice />
-                    <span>
-                        Invoice
-                    </span>
-                </a>
-            </li>
-            <li class="list-menu dropend">
-                    <x-dom.button type="dropdown" class="link-menu">
-                        <x-images.dashboard.customers />
+            @foreach ($links_pages as $link_page)
+                <li class="list-menu {{ ($link_page['type'] == 'dropdown') ? 'dropend' : '' }} ">
+                    <x-dom.button type="{{$link_page['type']}}" class="{{$link_page['class']}} {{$link_page['active']}}" slug="{{$link_page['slug']}}">
+                        {{$link_page['icono']}}
                         <span>
-                            Lo que sea
+                            {{$link_page['name']}}
                         </span>
                     </x-dom.button>
-                    {{-- <a type="button" class="link-menu dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <x-images.dashboard.customers />
-                        <span>
-                            Lo que sea
-                        </span>
-                    </a> --}}
-                    <ul class="dropdown-menu">
-                        <li>item-1</li>
-                        <li>item-2</li>
-                        <li>item-3</li>
-                    </ul>
-            </li>
-
+                    @if ($link_page['type'] == 'dropdown' && isset($link_page['items']))
+                        <ul class="dropdown-menu" slug="{{$link_page['slug']}}">
+                            @foreach ($link_page['items'] as $item)
+                                <li class="list-items">
+                                    <a class="dropdown-item" href="{{$item['href']}}">
+                                        {{$item['name']}}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </li>
+            @endforeach
         </ul>
     </div>
     <div class="menu-footer">
         <hr class="text-white">
         <ul>
             <li class="list-menu">
-                <a href="#" class="link-menu">
+                <a href="{{route('logout')}}" class="link-menu">
                     <x-images.dashboard.logout />
                     <span>
                         Logout

@@ -13,7 +13,7 @@
         </button>
         @break
     @case('dropdown')
-        <a {{ $attributes->merge(['class' => "dropdown-toggle $class"]) }}" data-bs-toggle="dropdown" aria-expanded="false">
+        <a {{ $attributes->merge(['class' => "dropdown-toggle $class"]) }} data-bs-toggle="dropdown" aria-expanded="false">
             {{$slot}}
         </a>
         @break

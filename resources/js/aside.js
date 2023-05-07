@@ -19,14 +19,16 @@ if (check_menu.is(':checked')) {
       $(this).removeClass('dropend')
       $(this).addClass('dropdown')
       let element_btn = $(this).find('.link-menu')
-      if ($(element_btn).data('bs-toggle') == 'dropdown') {
-        $(element_btn).attr('data-bs-toggle', 'collapse')
-        $(element_btn).attr('href', '#collapseExample')
-      }
+      element_btn.each(function () {
+            if ($(this).data('bs-toggle') == 'dropdown') {
+                $(this).attr('data-bs-toggle', 'collapse')
+                $(this).attr('href', '#'+$(this).attr("slug"))
+            }
+        })
       let element_ul = $(element_btn).next()
       element_ul.removeClass('dropdown-menu')
       element_ul.addClass('collapse')
-      element_ul.attr('id', 'collapseExample')
+      element_ul.attr('id', element_ul.attr('slug'))
     }
   })
 }
@@ -43,14 +45,16 @@ check_menu.on('click', () => {
         $(this).removeClass('dropend')
         $(this).addClass('dropdown')
         let element_btn = $(this).find('.link-menu')
-        if ($(element_btn).data('bs-toggle') == 'dropdown') {
-          $(element_btn).attr('data-bs-toggle', 'collapse')
-          $(element_btn).attr('href', '#collapseExample')
-        }
+        element_btn.each(function () {
+            if ($(this).data('bs-toggle') == 'dropdown') {
+                $(this).attr('data-bs-toggle', 'collapse')
+                $(this).attr('href', '#'+$(this).attr("slug"))
+            }
+        })
         let element_ul = $(element_btn).next()
         element_ul.removeClass('dropdown-menu')
         element_ul.addClass('collapse')
-        element_ul.attr('id', 'collapseExample')
+        element_ul.attr('id', element_ul.attr('slug'))
       }
     })
   } else {
