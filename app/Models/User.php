@@ -10,8 +10,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -46,19 +47,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * This is a PHP function that returns an Attribute object with a set method that hashes a password
-     * using the Hash::make method.
+     * This is a PHP function that returns an Attribute object with a password setter that hashes the
+     * input value using the Hash::make() method.
      *
-     * @return Attribute A new instance of the Attribute class with a set function that takes a value
-     * and returns the hashed version of that value using Laravel's Hash::make() method.
+     * @return Attribute A password attribute is being returned. The password attribute is created
+     * using the `Attribute::make()` method and has a setter function that hashes the password using
+     * Laravel's `Hash::make()` method.
      */
-    // protected function password(): Attribute {
-    //     return new Attribute(
-    //         set:function($value){
-    //             return Hash::make($value);
-    //         }
-    //     );
-    // }
     protected function password(): Attribute
     {
         return Attribute::make(

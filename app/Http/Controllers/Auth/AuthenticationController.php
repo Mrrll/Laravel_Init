@@ -8,6 +8,7 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class AuthenticationController extends Controller
 {
@@ -24,7 +25,7 @@ class AuthenticationController extends Controller
     {
         try {
             $user = User::create($request->safe()->except(['password_confirmation']));
-            // event(new Registered($user));
+            event(new Registered($user));
             $credentials = $request->safe()->only('email', 'password');
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();

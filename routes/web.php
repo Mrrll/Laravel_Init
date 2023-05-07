@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 require('auth.php');
+require('verify_email.php');
 
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 // Rutas Protegidas
 
-Route::group(['middleware' => ['auth', 'auth.session']],function () {
+Route::group(['middleware' => ['auth', 'auth.session', 'verified']],function () {
         // Dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     }

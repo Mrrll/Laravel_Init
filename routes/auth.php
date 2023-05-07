@@ -18,5 +18,5 @@ Route::controller(AuthenticationController::class)->group(function () {
     Route::get('login', 'login')->name('login');
     Route::post('register', 'registered')->name('register');
     Route::post('login', 'Authorization')->name('login');
-    Route::get('logout', 'logout')->name('logout');
+    Route::get('logout', 'logout')->name('logout')->middleware(['auth', 'auth.session']);
 });
