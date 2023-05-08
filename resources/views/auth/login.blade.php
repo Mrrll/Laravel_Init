@@ -11,5 +11,6 @@
                 <x-dom.button type="submit" class="btn-success">Sign In</x-dom.button>
             </x-slot:footer>
         </x-dom.card>
+        @include('auth.password.forgot-password')
     </main>
 @endsection

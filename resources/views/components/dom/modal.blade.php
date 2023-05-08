@@ -1,5 +1,5 @@
 @props(['route','method'])
-<div class="modal fade" id="{{ $name }}" tabindex="-1" aria-labelledby="{{ $name }}Label" aria-hidden="true"
+<div class="modal fade" id="{{ $name }}" tabindex="-1" aria-labelledby="{{ $name }}" aria-hidden="true"
     {{ isset($static) ? $attributes->merge(['data-bs-backdrop' => "$static"]) : '' }}>
     <div {{ $attributes->merge(['class' => "modal-dialog $class"]) }}>
         <div class="modal-content">

@@ -4,7 +4,10 @@
 </div>
 <div class="text-end mt-2">
     <small class="text-primary me-1">
-        <a href="#">Forgot your password?</a>
+        <x-dom.button type='modal' name="forgot-password" >
+            Forgot your password?
+        </x-dom.button>
+        {{-- <a href="#">Forgot your password?</a> --}}
     </small>
 </div>
 <div class="mb-0">
@@ -17,3 +20,4 @@
         <label class="form-check-label ms-1" for="flexSwitchCheckDefault">Remember me !!!</label>
     </div>
 </div>
+

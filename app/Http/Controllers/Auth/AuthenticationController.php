@@ -35,15 +35,15 @@ class AuthenticationController extends Controller
                 ->back()
                 ->with('message', [
                     'type' => 'danger',
-                    'title' => 'Error !',
-                    'message' => 'The credentials are wrong!!!',
+                    'title' => 'The credentials are not correct !',
+                    'message' => 'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
                 ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'Error !',
+                'title' => 'Failed to register !',
                 'message' =>
-                    'An error has occurred check the data and try again if it is not solved contact your administrator.',
+                    'Error registering check the data and try again later if the problem persists contact your administrator.',
             ]);
         }
     }
@@ -68,15 +68,15 @@ class AuthenticationController extends Controller
                 ->back()
                 ->with('message', [
                     'type' => 'danger',
-                    'title' => 'Error !',
-                    'message' => 'The credentials are wrong!!!',
+                    'title' => 'The credentials are not correct !',
+                    'message' => 'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
                 ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'Error !',
+                'title' => 'The credentials are not correct !',
                 'message' =>
-                    'An error has occurred check the data and try again if it is not solved contact your administrator.',
+                    'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
             ]);
         }
     }

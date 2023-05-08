@@ -15,9 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 require('auth.php');
 require('verify_email.php');
+require('forgot_password.php');
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+        return view('dashboard');
+    } else {
+        return view('welcome');
+    }
 })->name('welcome');
 // Rutas Protegidas
 
