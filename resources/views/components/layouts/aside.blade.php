@@ -20,7 +20,8 @@
         <ul>
             @foreach ($links_pages as $link_page)
                 <li class="list-menu {{ ($link_page['type'] == 'dropdown') ? 'dropend' : '' }} ">
-                    <x-dom.button type="{{$link_page['type']}}" class="{{$link_page['class']}} {{$link_page['active']}}" slug="{{$link_page['slug']}}">
+                    <x-dom.button type="{{$link_page['type']}}" class="{{$link_page['class']}} {{$link_page['active']}}" slug="{{$link_page['slug']}}" :route="$link_page['route']"
+                    :tooltip="(isset($link_page['tooltip'])) ? $link_page['tooltip'] : ''">
                         {{$link_page['icono']}}
                         <span>
                             {{$link_page['name']}}
@@ -45,12 +46,29 @@
         <hr class="text-white">
         <ul>
             <li class="list-menu">
-                <a href="{{route('logout')}}" class="link-menu">
+                <x-dom.button type="link" :route="route('setting')" class="link-menu {{request()->routeIs('setting') ? 'active disabled' : ''}}"
+                :tooltip="[
+                    'position' => 'right',
+                    'class' => 'custom-tooltip',
+                    'text' => 'App settings'
+                ]">
+                    <x-images.dashboard.setting />
+                    <span>
+                        Setting
+                    </span>
+                </x-dom.button>
+            </li>
+            <li class="list-menu">
+                <x-dom.button type="link" :route="route('logout')" class="link-menu" :tooltip="[
+                    'position' => 'right',
+                    'class' => 'custom-tooltip',
+                    'text' => 'Sign off'
+                ]">
                     <x-images.dashboard.logout />
                     <span>
                         Logout
                     </span>
-                </a>
+                </x-dom.button>
             </li>
         </ul>
     </div>

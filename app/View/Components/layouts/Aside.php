@@ -23,7 +23,12 @@ class Aside extends Component
                 'active' => request()->routeIs('dashboard') ? 'active disabled' : '',
                 'icono' => view('components.images.dashboard.dashboard'),
                 'icono_color' => '',
-                'class' => 'link-menu'
+                'class' => 'link-menu',
+                'tooltip' => [
+                    'position' => 'right',
+                    'class' => 'custom-tooltip',
+                    'text' => 'App main panel'
+                ]
             ],
             [
                 'name' => 'Articles',

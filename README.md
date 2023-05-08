@@ -10,6 +10,7 @@
 - [Componente form](#item6)
 - [Componente input](#item7)
 - [Componente toast](#item8)
+- [Componente accordion](#item9)
 
 **`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
@@ -74,6 +75,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2. Estilos Css => `class`
 3. Url => `route`
 4. Nombre => `name`
+5. Tooltip =>
+```php
+    [
+        `position`
+        `class`
+        `class`
+    ]
+```
 
 >Ejemplo del contenido del botón.
 
@@ -90,6 +99,19 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     Texto a mostrar
 </x-dom.button>
 ```
+
+>Ejemplo del botón con tooltip.
+
+```php
+<x-dom.button type='button' class="btn-primary" :tooltip="[
+    'position' => 'right',
+    'class' => 'custom-tooltip',
+    'text' => 'Mensaje del tooltip'
+]" >
+    Texto a mostrar
+</x-dom.button>
+```
+
 >Ejemplo del botón dropdown.
 
 ```php
@@ -328,5 +350,43 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     Mensaje del toast
 </x-messages.toast>
 ```
+
+[Subir](#top)
+
+<a name="item9"></a>
+
+## Componente accordion
+
+### Llamada al Componente
+
+```php
+<x-dom.accordion></x-dom.accordion>
+```
+
+### Usar Componente
+
+>Atributos del input.
+
+1. Nombre de referencia del acordeón => `name`
+
+>Ejemplo del accordion.
+
+```php
+<x-dom.accordion name="settings">
+    <x-dom.accordion.accordion-item name="Accordion1">
+        <x-slot:title>
+            Accordion Item #1
+        </x-slot:title>
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    </x-dom.accordion.accordion-item>
+    <x-dom.accordion.accordion-item name="Accordion2">
+        <x-slot:title>
+            Accordion Item #2
+        </x-slot:title>
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    </x-dom.accordion.accordion-item>
+</x-dom.accordion>
+```
+
 
 [Subir](#top)

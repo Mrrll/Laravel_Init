@@ -12,7 +12,8 @@ class button extends Component
     $type,
     $class,
     $route,
-    $name;
+    $name,
+    $tooltip;
     /**
      * Create a new component instance.
      */
@@ -20,13 +21,15 @@ class button extends Component
         $type = 'button',
         $class = null,
         $route = null,
-        $name = null
+        $name = null,
+        $tooltip = null
     )
     {
         $this->type = $type;
         $this->class = $class;
         $this->route = $route;
         $this->name = $name;
+        $this->tooltip = $tooltip;
     }
 
     /**

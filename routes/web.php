@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,15 +20,18 @@ require('forgot_password.php');
 
 Route::get('/', function () {
     if (Auth::check()) {
-        return view('dashboard');
+       return redirect()->intended('dashboard');
     } else {
         return view('welcome');
     }
 })->name('welcome');
-// Rutas Protegidas
 
+// Rutas Protegidas
 Route::group(['middleware' => ['auth', 'auth.session', 'verified']],function () {
         // Dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        // Setting
+        Route::get('setting', [SettingController::class, 'index'])->name('setting');
+
     }
 );

@@ -33,15 +33,6 @@ class Header extends Component
                 'icono_color' => ''
             ],
         ];
-        $this->links_pages_auths = [
-            [
-                'name' => 'Dashboard',
-                'route' => '',
-                'active' => '',
-                'icono' => '',
-                'icono_color' => ''
-            ],
-        ];
         $this->links_auths = [
             [
                 'name' => 'Sign In',
