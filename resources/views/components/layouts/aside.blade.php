@@ -1,5 +1,5 @@
 <input type="checkbox" id="btn_menu">
-<aside class="aside aside-dashboard">
+<aside class="aside aside-dashboard bg-light border-end bg-body-tertiary">
     <div class="menu-header">
         <div class="profile">
             <x-images.avatar></x-images.avatar>
@@ -17,10 +17,10 @@
         <hr class="text-white">
     </div>
     <div class="menu-content">
-        <ul>
+        <ul class="list-group">
             @foreach ($links_pages as $link_page)
-                <li class="list-menu {{ ($link_page['type'] == 'dropdown') ? 'dropend' : '' }} ">
-                    <x-dom.button type="{{$link_page['type']}}" class="{{$link_page['class']}} {{$link_page['active']}}" slug="{{$link_page['slug']}}" :route="$link_page['route']"
+                <li class="{{ ($link_page['type'] == 'dropdown') ? 'dropend' : '' }}">
+                    <x-dom.button type="{{$link_page['type']}}" class="list-group-item list-group-item-action {{$link_page['class']}} {{$link_page['active']}} {{($link_page['type'] != 'dropdown') ? 'only-icon' : '' }}" slug="{{$link_page['slug']}}" :route="$link_page['route']"
                     :tooltip="(isset($link_page['tooltip'])) ? $link_page['tooltip'] : ''">
                         {{$link_page['icono']}}
                         <span>
@@ -30,7 +30,7 @@
                     @if ($link_page['type'] == 'dropdown' && isset($link_page['items']))
                         <ul class="dropdown-menu" slug="{{$link_page['slug']}}">
                             @foreach ($link_page['items'] as $item)
-                                <li class="list-items">
+                                <li>
                                     <a class="dropdown-item" href="{{$item['href']}}">
                                         {{$item['name']}}
                                     </a>
@@ -43,10 +43,9 @@
         </ul>
     </div>
     <div class="menu-footer">
-        <hr class="text-white">
-        <ul>
-            <li class="list-menu">
-                <x-dom.button type="link" :route="route('setting')" class="link-menu {{request()->routeIs('setting') ? 'active disabled' : ''}}"
+        <ul class="list-group">
+            <li>
+                <x-dom.button type="link" :route="route('setting')" class="list-group-item list-group-item-action {{request()->routeIs('setting') ? 'active disabled' : ''}} only-icon"
                 :tooltip="[
                     'position' => 'right',
                     'class' => 'custom-tooltip',
@@ -58,8 +57,8 @@
                     </span>
                 </x-dom.button>
             </li>
-            <li class="list-menu">
-                <x-dom.button type="link" :route="route('logout')" class="link-menu" :tooltip="[
+            <li>
+                <x-dom.button type="link" :route="route('logout')" class="list-group-item list-group-item-action only-icon" :tooltip="[
                     'position' => 'right',
                     'class' => 'custom-tooltip',
                     'text' => 'Sign off'
