@@ -35,7 +35,8 @@
     'aside header'
     'aside main '
     'footer footer';
-  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .header-dashboard {
@@ -48,6 +49,7 @@
 
 .main-dashboard {
   grid-area: main;
+  overflow: auto;
 }
 
 .footer-dashboard {

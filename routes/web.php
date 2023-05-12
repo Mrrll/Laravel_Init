@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'auth.session', 'verified']],function () 
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         // Setting
         Route::get('setting', [SettingController::class, 'index'])->name('setting');
+        Route::post('setting/appearance', [SettingController::class, 'appearance'])->name('setting.appearance');
 
     }
 );

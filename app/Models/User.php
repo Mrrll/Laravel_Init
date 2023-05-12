@@ -60,4 +60,17 @@ class User extends Authenticatable implements MustVerifyEmail
             set: fn (string $value) => Hash::make($value),
         );
     }
+
+    // Relación uno a uno
+    /**
+     * This PHP function returns a hasOne relationship with the Setting model.
+     *
+     * @return A relationship between the current model and the `Setting` model is being returned.
+     * Specifically, a `hasOne` relationship is being defined, indicating that the current model has
+     * one associated `Setting` model.
+     */
+    public function setting()
+    {
+        return $this->hasOne(Setting::class);
+    }
 }

@@ -1,7 +1,16 @@
 <header class="bg-light border-bottom header-dashboard">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <x-images.logo></x-images.logo>
+            @auth
+                @isset(auth()->user()->setting->image)
+                    <img src="{{asset(auth()->user()->setting->image->first()->url)}}" width="48" height="48">
+                @else
+                    <x-images.logo></x-images.logo>
+                @endisset
+            @endauth
+            @guest
+                <x-images.logo></x-images.logo>
+            @endguest
             <a class="navbar-brand ms-2">{{ env('APP_NAME') }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
