@@ -83,6 +83,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
         `class`
     ]
 ```
+6. id = `id`
 
 >Ejemplo del contenido del botón.
 

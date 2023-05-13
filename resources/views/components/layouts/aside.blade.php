@@ -46,7 +46,7 @@
         <div class="menu-footer">
             <ul class="list-group">
                 <li>
-                    <x-dom.button type="link" :route="route('setting')" class="list-group-item list-group-item-action {{request()->routeIs('setting') ? 'active disabled' : ''}} only-icon"
+                    <x-dom.button type="link" :route="isset(auth()->user()->setting) ? route('setting.edit', auth()->user()->setting)  :  route('setting.create')" class="list-group-item list-group-item-action {{request()->routeIs('setting.*') ? 'active disabled' : ''}} only-icon"
                     :tooltip="[
                         'position' => 'right',
                         'class' => 'custom-tooltip',
