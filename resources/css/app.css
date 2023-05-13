@@ -13,20 +13,7 @@
     'footer';
   min-height: 100vh;
 }
-.container-float {
-  position: relative;
-}
-.btn-float {
-  position: absolute;
-}
-.btn-position-top-0-left-0 {
-  top: 0;
-  left: 0;
-}
 
-.invalid {
-  color: red;
-}
 .body-dashboard {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -36,7 +23,6 @@
     'aside main '
     'footer footer';
   max-height: 100vh;
-  overflow: hidden;
 }
 
 .header-dashboard {
@@ -49,7 +35,7 @@
 
 .main-dashboard {
   grid-area: main;
-  overflow: auto;
+  margin-bottom: 2em;
 }
 
 .footer-dashboard {

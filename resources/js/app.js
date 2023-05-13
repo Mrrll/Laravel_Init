@@ -4,6 +4,7 @@ window.bootstrap = bootstrap;
 import 'jquery-ui/dist/jquery-ui';
 import './bootstrap-tagsinput';
 import './aside';
+import './header';
 
 // Tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

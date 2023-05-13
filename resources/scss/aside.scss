@@ -1,17 +1,24 @@
-.aside {
+aside {
     position: relative;
     //  width: 250px;
     width: 85px;
     transition: all 500ms ease;
+
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 100;
+}
+.aside {
+    position: fixed;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto 1fr auto;
-    box-sizing: border-box;
+    height: 90vh;
 }
 #btn_menu {
     display: none;
 }
-#btn_menu:checked ~ .aside {
+#btn_menu:checked ~ aside {
     width: 250px;
 }
 .menu-header {

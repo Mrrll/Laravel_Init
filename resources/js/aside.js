@@ -6,6 +6,7 @@ let icon_content = $('.aside a.only-icon')
 let text_content = $('.aside a span')
 let li_content = $('.aside li')
 let link_menu = $('.link-menu')
+let menu_content = $('.menu-content')
 
 if (check_menu.is(':checked')) {
     // Cambios de estilos del menu aside cuando esta abierto
@@ -41,6 +42,8 @@ if (check_menu.is(':checked')) {
             })
         })
     })
+    menu_content.css('width', '250px')
+    menu_content.css('overflow-y', 'auto')
 }
 
 check_menu.on('click', () => {
@@ -78,6 +81,8 @@ check_menu.on('click', () => {
                 })
             })
         })
+        menu_content.css('width', '250px')
+        menu_content.css('overflow-y', 'auto')
     } else {
         // Cambios de estilos del menu aside cuando esta cerrado
         btn_close_menu.hide()
@@ -107,5 +112,7 @@ check_menu.on('click', () => {
 
             }
         })
+        menu_content.css('width', '85px')
+        menu_content.css('overflow-y', '')
     }
 })
