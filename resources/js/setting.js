@@ -1,9 +1,11 @@
 // Función de seleccionar tema de la aplicación
-function SelectTheme(event) {
+function SelectTheme(event, defaultValue) {
     let selected = event.target
     let preview = $('#theme_preview')[0]
     let url = preview.src.split("images/themes/");
-    preview.src = url[0]+"images/themes/theme_"+selected.value+".png"
+    if (selected.value != defaultValue) {
+        preview.src = url[0]+"images/themes/theme_"+selected.value+".png"
+    }
 }
 window.SelectTheme = SelectTheme
 

@@ -11,6 +11,7 @@
 - [Componente input](#item7)
 - [Componente toast](#item8)
 - [Componente accordion](#item9)
+- [Componente select](#item10)
 
 **`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
@@ -389,5 +390,50 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 </x-dom.accordion>
 ```
 
+[Subir](#top)
 
+<a name="item10"></a>
+
+## Componente select
+
+### Llamada al Componente
+
+```php
+<x-dom.select></x-dom.select>
+```
+
+### Usar Componente
+
+>Atributos del select.
+
+1. Identificación => `id`
+2. Clase Css => `class`
+3. Nombre => `name`
+4. Change (JS) => `onchange`
+5. Texto de la Opción por defecto => `title`
+6. label => `label`
+
+## Componente compuesto
+
+### Llamada al Sub-Componente
+
+```php
+<x-dom.select.option></x-dom.select.option>
+```
+
+>Atributos del option.
+
+1. Valor => `value`
+2. Identificación => `id`
+3. Valor de la selección por defecto => `selected`
+
+>Ejemplo del select.
+
+```php
+<x-dom.select id="MySelect" class="form-select-lg mb-3"  name="países" onchange="funcion_paises()" title="Open this select menu" label="Selecciona un país">
+    <x-dom.select.option value="españa" selected="{{$valor_defecto}}" id="MySelect">España</x-dom.select.option>
+    <x-dom.select.option value="francia" selected="{{$valor_defecto}}" id="MySelect">Francia</x-dom.select.option>
+    <x-dom.select.option value="portugal" selected="{{$valor_defecto}}" id="MySelect">Portugal</x-dom.select.option>
+</x-dom.select>
+```
 [Subir](#top)

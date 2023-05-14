@@ -43,13 +43,18 @@
                         {{-- Segunda Seccion --}}
                         <div class="mb-3 g-col-12 g-col-md-6">
                             {{-- Selector del tema --}}
-                            <label for="select_theme" class="form-label">Application theme</label>
+                            <x-dom.select id="select_theme" class="form-select-lg mb-3"  name="theme" onchange="SelectTheme(event, 'Select a theme')" title="Select a theme" label="Application theme">
+                                <x-dom.select.option value="light" selected="{{$setting->theme}}" id="select_theme">Light</x-dom.select.option>
+                                <x-dom.select.option value="dark" selected="{{$setting->theme}}" id="select_theme">Dark</x-dom.select.option>
+                                <x-dom.select.option value="peyra" selected="{{$setting->theme}}" id="select_theme">Peyra</x-dom.select.option>
+                            </x-dom.select>
+                            {{-- <label for="select_theme" class="form-label">Application theme</label>
                             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_theme" name="theme" onchange="SelectTheme(event)">
                                 <option selected>Open this select menu</option>
                                 <option value="light" @selected(old('select_theme', $setting->theme) == "light" )>Light</option>
                                 <option value="dark" @selected(old('select_theme', $setting->theme) == "dark" )>Dark</option>
                                 <option value="peyra" @selected(old('select_theme', $setting->theme) == "peyra" )>Peyra</option>
-                            </select>
+                            </select> --}}
                         </div>
                         <div class="mb-3 g-col-12 g-col-md-6 text-center">
                             {{-- imagen preview del thema --}}
