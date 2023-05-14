@@ -32,9 +32,13 @@ class SettingController extends Controller
     public function appearance(AppearanceRequest $request)
     {
         try {
-            $setting = Setting::create($request->safe()->except('logo'));
-            $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
-            $setting->image()->create(['url' => $url]);
+            if (isset($request->validated()['logo'])) {
+                $setting = Setting::create($request->safe()->except('logo'));
+                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
+                $setting->image()->create(['url' => $url]);
+            } else {
+                $setting = Setting::create($request->validated());
+            }
             return redirect()->route('setting.edit', $setting)->with('message', [
                 'type' => 'success',
                 'title' => 'Success in saving !',
@@ -83,13 +87,16 @@ class SettingController extends Controller
     public function appearanceUpdate(AppearanceRequest $request, Setting $setting)
     {
         try {
-            // dd($request->safe()->except('logo'));
-            $setting->update($request->safe()->except('logo'));
-            $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
-            if (isset($setting->image->url)) {
-                $setting->image()->update(['url' => $url]);
+            if (isset($request->validated()['logo'])) {
+                $setting->update($request->safe()->except('logo'));
+                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
+                if ($setting->image->first()) {
+                    $setting->image()->update(['url' => $url]);
+                } else {
+                    $setting->image()->create(['url' => $url]);
+                }
             } else {
-                $setting->image()->create(['url' => $url]);
+                $setting->update($request->validated());
             }
             return redirect()->route('setting.edit', $setting)->with('message', [
                 'type' => 'success',

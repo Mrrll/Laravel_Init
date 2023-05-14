@@ -39,13 +39,11 @@
                         {{-- Segunda Seccion --}}
                         <div class="mb-3 g-col-12 g-col-md-6">
                             {{-- Selector del tema --}}
-                            <label for="select_theme" class="form-label">Application theme</label>
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select_theme" name="theme" onchange="SelectTheme(event)">
-                                <option selected>Open this select menu</option>
-                                <option value="light">Light</option>
-                                <option value="dark">Dark</option>
-                                <option value="peyra">Peyra</option>
-                            </select>
+                            <x-dom.select id="select_theme" class="form-select-lg mb-3"  name="theme" onchange="SelectTheme(event, 'Select a theme')" title="Select a theme" label="Application theme">
+                                <x-dom.select.option value="light">Light</x-dom.select.option>
+                                <x-dom.select.option value="dark">Dark</x-dom.select.option>
+                                <x-dom.select.option value="peyra">Peyra</x-dom.select.option>
+                            </x-dom.select>
                         </div>
                         <div class="mb-3 g-col-12 g-col-md-6 text-center">
                             {{-- imagen preview del thema --}}

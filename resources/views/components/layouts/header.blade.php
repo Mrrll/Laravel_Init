@@ -2,11 +2,11 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             @auth
-                @isset(auth()->user()->setting->image)
+                @if (auth()->user()->setting->image->first())
                     <img src="{{asset(auth()->user()->setting->image->first()->url)}}" width="48" height="48">
                 @else
                     <x-images.logo></x-images.logo>
-                @endisset
+                @endif
             @endauth
             @guest
                 <x-images.logo></x-images.logo>
