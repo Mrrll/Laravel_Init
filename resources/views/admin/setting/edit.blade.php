@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard')
+@section('title', 'Setting')
 @section('content')
     <main class="container-fluid main-dashboard">
         <h1>Setting</h1>

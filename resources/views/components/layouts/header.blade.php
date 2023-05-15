@@ -1,8 +1,8 @@
-<header class="bg-light border-bottom header-dashboard">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<header class="bg-body header-dashboard">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
         <div class="container-fluid">
             @auth
-                @if (auth()->user()->setting->image->first())
+                @if (auth()->user()->setting && auth()->user()->setting->image->first())
                     <img src="{{asset(auth()->user()->setting->image->first()->url)}}" width="48" height="48">
                 @else
                     <x-images.logo></x-images.logo>

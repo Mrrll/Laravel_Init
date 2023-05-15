@@ -8,13 +8,3 @@ function SelectTheme(event, defaultValue) {
     }
 }
 window.SelectTheme = SelectTheme
-
-// Habilitamos el botón de guardar la apariencia de la aplicación
-let formFile = $('#formFile')
-formFile.on('change', function (e) {
-    $('#btn_appearance').removeClass('disabled')
-})
-let select_theme = $('#select_theme')
-select_theme.on('change', function (e) {
-    $('#btn_appearance').removeClass('disabled')
-})

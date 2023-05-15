@@ -3,10 +3,16 @@
     <div class="aside">
         <div class="menu-header">
             <div class="profile">
-                <x-images.avatar></x-images.avatar>
+                @if(auth()->user()->profile && !empty(auth()->user()->profile->image->first()))
+                    <img height="48px" width="48px" src="{{asset(auth()->user()->profile->image->first()->url)}}">
+                @else
+                    <x-images.avatar></x-images.avatar>
+                @endif
                 <div>
                     <span>{{ auth()->user()->name }}</span>
-                    <a href="#"><small>Profile</small></a>
+                    <x-dom.button type="link" :route="isset(auth()->user()->profile) ? route('profile.edit', auth()->user()->profile)  :  route('profile.create')">
+                        <small>Profile</small>
+                    </x-dom.button>
                 </div>
             </div>
             <label class="btn-close-menu" for="btn_menu">

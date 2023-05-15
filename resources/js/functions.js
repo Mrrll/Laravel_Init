@@ -1,3 +1,4 @@
+// Funcion para visualizar una imagen antes de guardarla.
 function previewImage(event, querySelector, queryPreview){
 
 	//Recuperamos el input que desencadeno la acción
@@ -25,3 +26,40 @@ function previewImage(event, querySelector, queryPreview){
 
 }
 window.previewImage = previewImage;
+
+// Funcion que activa o desactiva el boton del formulario.
+$('form').on('change', function (e) {
+    // console.log(e.target);
+    let btn = null
+    $('form').find('button[type="submit"]').each( function () {
+        btn = this.id
+    })
+    if ($(e.target).val() === '') {
+        console.log($('#'+btn));
+        $('#'+btn).addClass('disabled')
+        console.log("Deshabilito");
+    } else {
+        $('#'+btn).removeClass('disabled')
+        console.log("Habilito");
+    }
+    $('form').find('input, select, textarea').each( function () {
+        if (this.type != 'hidden' && $(this).val() != '') {
+            $('#'+btn).removeClass('disabled')
+            return false
+        }
+    })
+
+})
+
+// Funcion que valida los formularios.
+function validateForm(e) {
+    let form = $(e.target)
+    let valid = false
+    form.find('input, select, textarea').each(function (i, element){
+        if (element.type != 'hidden' && $(element).val() != '' ) {
+            valid = true
+        }
+    })
+    return valid
+}
+window.validateForm = validateForm;
