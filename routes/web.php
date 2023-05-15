@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Notifications\PruebaEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +44,9 @@ Route::group(['middleware' => ['auth', 'auth.session', 'verified']],function () 
 
     }
 );
+
+Route::get('notificacion', function () {
+    $user = User::find(1);
+    $user->notify(new PruebaEmail());
+    return 'Mensaje enviado!';
+});
