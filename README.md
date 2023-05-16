@@ -10,9 +10,10 @@
 - [Componente form](#item6)
 - [Componente input](#item7)
 - [Componente toast](#item8)
-- [Componente accordion](#item9)
-- [Componente select](#item10)
-- [Links Navegadores](#item11)
+- [Componente alert](#item9)
+- [Componente accordion](#item10)
+- [Componente select](#item11)
+- [Links Navegadores](#item12)
 
 **`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
@@ -82,7 +83,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     [
         `position`
         `class`
-        `class`
+        `text`
     ]
 ```
 6. id = `id`
@@ -324,6 +325,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 [Subir](#top)
 
+
+
 <a name="item8"></a>
 
 ## Componente toast
@@ -346,7 +349,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 1. Header => `title`
 
->Ejemplo del input.
+>Ejemplo del alert.
 
 ```php
 <x-messages.toast type="danger">
@@ -359,7 +362,40 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 [Subir](#top)
 
-<a name="item9"></a>
+## Componente alert
+
+### Llamada al Componente
+
+```php
+<x-messages.alert></x-messages.alert>
+```
+
+### Usar Componente
+
+>Atributos del alert.
+
+1. Tipo del alert => `type`
+
+**Añadiendo `type=` en el elemento si no declaras la propiedad se creara por defecto el `type='info'`.**
+
+>Propiedades con nombre del alert.
+
+1. Header => `title`
+
+>Ejemplo del alert.
+
+```php
+<x-messages.alert type="warning">
+    <x-slot:title>
+        <h4 class="alert-heading">Titulo!</h4>
+    </x-slot:title>
+        Contenido de la alerta
+</x-messages.alert>
+```
+
+[Subir](#top)
+
+<a name="item10"></a>
 
 ## Componente accordion
 
@@ -396,7 +432,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 [Subir](#top)
 
-<a name="item10"></a>
+<a name="item11"></a>
 
 ## Componente select
 
@@ -443,7 +479,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 [Subir](#top)
 
-<a name="item11"></a>
+<a name="item12"></a>
 
 ## Links Navegadores
 
