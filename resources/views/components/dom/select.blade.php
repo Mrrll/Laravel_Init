@@ -5,7 +5,4 @@
     onchange="{{$onchange ?? ''}}">
     <option selected>{{$title}}</option>
     {{$slot}}
-    {{-- <option value="light" @selected(old('select_theme', $setting->theme) == 'light')>Light</option>
-    <option value="dark" @selected(old('select_theme', $setting->theme) == 'dark')>Dark</option>
-    <option value="peyra" @selected(old('select_theme', $setting->theme) == 'peyra')>Peyra</option> --}}
 </select>

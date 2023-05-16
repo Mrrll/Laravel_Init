@@ -73,7 +73,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Setting::class);
     }
-    
+
+    /**
+     * This PHP function returns a one-to-one relationship between the current object and a Profile
+     * object.
+     *
+     * @return A relationship between the current model and the `Profile` model is being returned.
+     * Specifically, a one-to-one relationship is being defined using the `hasOne` method.
+     */
     public function profile()
     {
         return $this->hasOne(Profile::class);

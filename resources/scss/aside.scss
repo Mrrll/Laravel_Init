@@ -1,9 +1,7 @@
 aside {
     position: relative;
-    //  width: 250px;
     width: 85px;
     transition: all 500ms ease;
-
     box-sizing: border-box;
     overflow-y: auto;
     z-index: 100;
@@ -14,6 +12,8 @@ aside {
     grid-template-columns: auto;
     grid-template-rows: auto 1fr auto;
     height: 90vh;
+    width: inherit;
+
 }
 #btn_menu {
     display: none;
@@ -54,10 +54,17 @@ aside {
     right: 10px;
     cursor: pointer;
     display: none;
-    transition: all 300ms ease;
 }
 .menu-header .btn-close-menu:hover {
     color: var(--bs-emphasis-color);
+}
+// Scroll del menu aside
+.menu-content {
+    transition: width  500ms ease;
+    scrollbar-width: none;
+}
+.menu-content::-webkit-scrollbar {
+ width: 0;
 }
 .aside a span {
     display:none;
@@ -95,130 +102,3 @@ aside {
   border-radius: var(--bs-list-group-border-radius);
   cursor: pointer;
 }
-// .menu-content a:not([class='dropdown-toggle']) {
-//     display:flex;
-//     justify-content:center;
-// }
-
-// .menu-header .btn-close-menu {
-//     position: absolute;
-//     top: 15px;
-//     right: 10px;
-//     cursor: pointer;
-//     display: none;
-//     transition: all 300ms ease;
-// }
-// .menu-header .btn-menu {
-//     cursor: pointer;
-//     transition: all 300ms ease;
-// }
-// .menu-header .btn-close-menu i {
-//     color: rgb(213, 211, 211);
-// }
-// .menu-header .btn-menu i {
-//     color: rgb(213, 211, 211);
-// }
-// .menu-header .profile {
-//     display: none;
-//     align-items: center;
-//     margin-left: 10px;
-//     transition: all 300ms ease;
-// }
-// .menu-header .profile div {
-//     padding: 0.5em;
-// }
-// .menu-header .profile span {
-//     display:block;
-//     // color: rgb(213, 211, 211);
-// }
-// .menu-header .profile a {
-//     text-decoration: none;
-//     // color: rgb(213, 211, 211);
-//     transition: all 300ms ease;
-// }
-// .menu-content ul {
-//     padding: 0 !important;
-// }
-// .menu-content .list-menu {
-//     display: block;
-// }
-// // .menu-content .link-menu.active {
-// //     background-color: rgb(60, 60, 60);
-// //     border-left: 2px solid white;
-// //     color: white;
-// // }
-// .menu-content .link-menu.disabled {
-//     pointer-events: none;
-//     cursor: default;
-// }
-// .menu-content .link-menu {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 0.4em;
-//     text-decoration: none;
-//     // color: rgb(213, 211, 211);
-//     border-left: 2px solid transparent;
-// }
-// .menu-content .link-menu:hover {
-//     // color: rgb(213, 211, 211);
-//     // background-color: rgb(60, 60, 60);
-//     border-left: 2px solid rgb(213, 211, 211);
-
-// }
-// .menu-content span {
-//     display: none;
-//     margin-left: 20px;
-// }
-// .menu-content .menu-dropdown {
-//     display: block !important;
-// }
-// .menu-content .dropend .link-menu {
-//     padding-left: 1.01em;
-// }
-// // .menu-content .list-items {
-// //     background-color: rgb(36, 36, 36);
-// // }
-// // .menu-content .list-items a {
-// //     color: rgb(213, 211, 211);
-// // }
-// // .menu-content .list-items a:hover {
-// //     color: rgb(213, 211, 211);
-// //     background-color: rgb(60, 60, 60);
-// // }
-// .menu-content ul.collapse > li a {
-//     padding: 0.4em;
-//     padding-left: 1em;
-// }
-// .menu-content ul.collapse > li:last-child {
-//     border-bottom: 1px solid white;
-// }
-// .menu-footer ul {
-//     padding: 0 !important;
-// }
-// .menu-footer .list-menu {
-//     display: block;
-// }
-// .menu-footer .link-menu.active {
-//     // background-color: rgb(60, 60, 60);
-//     border-left: 2px solid white;
-//     color: white;
-// }
-// .menu-footer .link-menu {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     padding: 0.4em;
-//     text-decoration: none;
-//     // color: rgb(213, 211, 211);
-//     border-left: 2px solid transparent;
-// }
-// .menu-footer .link-menu:hover {
-//     // background-color: rgb(60, 60, 60);
-//     border-left: 2px solid rgb(213, 211, 211);
-// }
-// .menu-footer span {
-//     display: none;
-//     margin-left: 20px;
-//     // color: rgb(213, 211, 211);
-// }

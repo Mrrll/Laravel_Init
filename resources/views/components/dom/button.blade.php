@@ -2,12 +2,14 @@
     @case('link')
         <a href="{{$route ?? '#'}}" {{ $attributes->merge(['class' => "$class"]) }} id="{{$id ?? ''}}"
             @isset($tooltip)
-                data-bs-toggle="tooltip"
-                data-bs-placement="{{$tooltip['position']}}"
-                @isset($tooltip['class'])
-                    data-bs-custom-class="{{$tooltip['class']}}"
-                @endisset
-                data-bs-title="{{$tooltip['text']}}"
+                @if ($tooltip != null && $tooltip != '')
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="{{$tooltip['position']}}"
+                    @isset($tooltip['class'])
+                        data-bs-custom-class="{{$tooltip['class']}}"
+                    @endisset
+                    data-bs-title="{{$tooltip['text']}}"
+                @endif
             @endisset
             > {{$slot}} </a>
         @break
@@ -28,12 +30,14 @@
     @case('closemodal')
         <button type="button" {{ $attributes->merge(['class' => "$class"]) }} data-bs-dismiss="modal" id="{{$id ?? ''}}"
             @isset($tooltip)
-                data-bs-toggle="tooltip"
-                data-bs-placement="{{$tooltip['position']}}"
-                @isset($tooltip['class'])
-                    data-bs-custom-class="{{$tooltip['class']}}"
-                @endisset
-                data-bs-title="{{$tooltip['text']}}"
+                @if ($tooltip != null && $tooltip != '')
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="{{$tooltip['position']}}"
+                    @isset($tooltip['class'])
+                        data-bs-custom-class="{{$tooltip['class']}}"
+                    @endisset
+                    data-bs-title="{{$tooltip['text']}}"
+                @endif
             @endisset
             >
             {{$slot}}
@@ -52,12 +56,14 @@
     @default
     <button type="{{$type}}" {{ $attributes->merge(['class' => "btn $class"]) }} id="{{$id ?? ''}}"
         @isset($tooltip)
-            data-bs-toggle="tooltip"
-            data-bs-placement="{{$tooltip['position']}}"
-            @isset($tooltip['class'])
-                data-bs-custom-class="{{$tooltip['class']}}"
-            @endisset
-            data-bs-title="{{$tooltip['text']}}"
+            @if ($tooltip != null && $tooltip != '')
+                data-bs-toggle="tooltip"
+                data-bs-placement="{{$tooltip['position']}}"
+                @isset($tooltip['class'])
+                    data-bs-custom-class="{{$tooltip['class']}}"
+                @endisset
+                data-bs-title="{{$tooltip['text']}}"
+            @endif
         @endisset
         >
         {{$slot}}

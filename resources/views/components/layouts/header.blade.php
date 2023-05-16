@@ -22,14 +22,46 @@
                     <hr class="hidden-lg">
                     @guest
                         @foreach ($links_pages as $link_page)
-                            <li class="nav-item">
-                                <a class="nav-link {{ $link_page['active'] }}" aria-current="page" href="{{ $link_page['route'] }}">
+                            <li
+                             @if ($link_page['type'] == 'dropdown')
+                                class="drop{{$link_page['position']}}"
+                                @elseif ($link_page['type'] == 'collapse')
+                                class="drop{{$link_page['position']}} dropdown-parent"
+                             @endif
+                             >
+                             @if ($link_page['type'] == 'collapse' || $link_page['type'] == 'dropdown')
+                                <x-dom.button
+                                type="{{ $link_page['type']}}"
+                                class="{{$link_page['class']}} {{$link_page['active']}} dropdown-toggle"
+                                name="{{$link_page['slug']}}"
+                                >
                                     <i class="{{ $link_page['icono'] }}"
                                         style="color: {{ $link_page['icono_color'] }};">
                                     </i>
                                     {{ $link_page['name'] }}
-                                </a>
-                            </li>
+                                </x-dom.button>
+                                <ul class="{{$link_page['type'] == 'collapse' ? 'collapse' : ''}} dropdown-child dropdown-menu mt-2-5" id="{{$link_page['slug']}}">
+                                    @foreach ($link_page['items'] as $item)
+                                        <li>
+                                            <a class="dropdown-item" href="{{$item['href']}}">
+                                                {{$item['name']}}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                             @else
+                                <x-dom.button
+                                type="{{ $link_page['type']}}"
+                                class="{{$link_page['class']}} {{$link_page['active']}}"
+                                name="{{$link_page['slug']}}"
+                                >
+                                    <i class="{{ $link_page['icono'] }}"
+                                        style="color: {{ $link_page['icono_color'] }};">
+                                    </i>
+                                    {{ $link_page['name'] }}
+                                </x-dom.button>
+                             @endif
+                    </li>
                         @endforeach
                     @endguest
                 </ul>

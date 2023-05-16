@@ -12,6 +12,7 @@
 - [Componente toast](#item8)
 - [Componente accordion](#item9)
 - [Componente select](#item10)
+- [Links Navegadores](#item11)
 
 **`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
@@ -85,6 +86,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     ]
 ```
 6. id = `id`
+7. Posicionamiento de los menu desplegables  => `position`
+
+**`Nota :` El posicionamiento esta configurado para el navegador del header si se utiliza en otro lugar la configuración debe de ser manual.**
 
 >Ejemplo del contenido del botón.
 
@@ -436,4 +440,82 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     <x-dom.select.option value="portugal" selected="{{$valor_defecto}}" id="MySelect">Portugal</x-dom.select.option>
 </x-dom.select>
 ```
+
+[Subir](#top)
+
+<a name="item11"></a>
+
+## Links Navegadores
+
+>Para añadir botones a la navegación abrimos el archivo `LinksNav.php` en `app\Traits\LinksNav.php` y dentro de los arrays escribimos lo siguiente.
+
+>Hay tres tipos de links :
+
+1. `LinksPages` => Que son los links de navegación del menu header.
+2. `LinksApp` => Que son los links de navegación del menu aside.
+3. `LinksAuth` => Que los links de navegación de autorización.
+
+```php
+[
+    'name' => 'Dashboard',
+    'slug' => 'dashboard',
+    'type' => 'link',
+    'route' => route('dashboard'),
+    'active' => request()->routeIs('dashboard') ? 'active disabled' : '',
+    'icono' => view('components.images.dashboard.dashboard'),
+    'icono_color' => '',
+    'class' => 'link-menu',
+    'tooltip' => [
+        'position' => 'right',
+        'class' => 'custom-tooltip',
+        'text' => 'App main panel'
+    ]
+],
+[
+    'name' => 'Courses',
+    'slug' => 'courses',
+    'type' => 'collapse',
+    'position' => 'down',
+    'route' => '#courses',
+    'active' => '',
+    'icono' => '',
+    'icono_color' => '',
+    'class' => 'nav-link',
+    'items' => [
+        [
+            'name' => 'List Courses',
+            'href' => '#',
+        ],
+        [
+            'name' => 'Create Courses',
+            'href' => '#',
+        ],
+    ]
+],
+[
+    'name' => 'Example',
+    'slug' => 'example',
+    'type' => 'dropdown',
+    'position' => 'down',
+    'route' => '',
+    'active' => '',
+    'icono' => '',
+    'icono_color' => '',
+    'class' => 'nav-link',
+    'items' => [
+        [
+            'name' => 'List Example',
+            'href' => '#',
+        ],
+        [
+            'name' => 'Create Example',
+            'href' => '#',
+        ],
+    ]
+],
+```
+**`Nota :` Podemos poner cualquier tipo de botón que se pueda configurar en el componente button.**
+
+**`Nota :` En el menu aside se configuran los botones `dropdown` y la aplicación realiza el cambio a `collapse` automáticamente cuando el menu se desplega.**
+
 [Subir](#top)

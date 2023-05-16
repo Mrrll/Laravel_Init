@@ -44,9 +44,3 @@ Route::group(['middleware' => ['auth', 'auth.session', 'verified']],function () 
 
     }
 );
-
-Route::get('notificacion', function () {
-    $user = User::find(1);
-    $user->notify(new PruebaEmail());
-    return 'Mensaje enviado!';
-});

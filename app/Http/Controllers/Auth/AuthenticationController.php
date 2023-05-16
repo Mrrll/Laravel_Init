@@ -21,6 +21,20 @@ class AuthenticationController extends Controller
     {
         return view('auth.register');
     }
+
+    /**
+     * This function registers a user, logs them in, and redirects them to the dashboard or displays an
+     * error message if there is an issue.
+     *
+     * @param RegisterRequest request The  parameter is an instance of the RegisterRequest
+     * class, which is a custom request class that contains validation rules and messages for the
+     * registration form data. It is used to validate and sanitize the user input before creating a new
+     * user record in the database.
+     *
+     * @return a redirect response to either the 'dashboard' route if the user's credentials are
+     * correct and they are successfully authenticated, or back to the previous page with a message
+     * indicating that the registration failed and providing an error message.
+     */
     public function registered(RegisterRequest $request)
     {
         try {
@@ -56,6 +70,20 @@ class AuthenticationController extends Controller
     {
         return view('auth.login');
     }
+
+    /**
+     * This function handles user authorization by checking their login credentials and redirecting
+     * them to the dashboard if successful, or displaying an error message if the credentials are
+     * incorrect.
+     *
+     * @param LoginRequest request  is an instance of the LoginRequest class, which is a custom
+     * request class that extends the base Laravel request class. It contains the input data from the
+     * login form submitted by the user.
+     *
+     * @return This function returns a redirect response to either the 'dashboard' page if the user's
+     * credentials are correct, or back to the previous page with an error message if the credentials
+     * are incorrect.
+     */
     public function Authorization(LoginRequest $request)
     {
         try {
@@ -80,6 +108,19 @@ class AuthenticationController extends Controller
             ]);
         }
     }
+
+   /**
+    * This PHP function logs out the user, invalidates the session, regenerates the session token, and
+    * redirects to the welcome page.
+    *
+    * @param Request request  is an instance of the Illuminate\Http\Request class which
+    * represents an HTTP request. It contains information about the request such as the HTTP method,
+    * headers, and input data. In this context, it is used to invalidate the user's session and
+    * regenerate a new CSRF token after logging out the user.
+    *
+    * @return a redirect response to the 'welcome' route after logging out the authenticated user,
+    * invalidating the session and regenerating the CSRF token.
+    */
     public function logout(Request $request)
     {
         Auth::logout();
