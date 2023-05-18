@@ -1,14 +1,16 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Setting')
+@section('title', trans('Setting'))
 @section('content')
     <main class="container-fluid main-dashboard">
-        <h1>Setting</h1>
+        <h1>
+            @lang('Setting')
+        </h1>
         <x-dom.accordion name="settings">
             {{-- Ajustes de Apariencia de la Aplicación --}}
             <x-dom.accordion.accordion-item name="appearance">
                 <x-slot:title>
-                    Configure App Appearance
+                    @lang('Configure App Appearance')
                 </x-slot:title>
                 <x-dom.form :route="route('setting.appearance.update', $setting)" method="patch">
                     <div class="grid align-items-center" style="--bs-gap: 1rem;">
@@ -31,7 +33,9 @@
                         </div>
                         <div class="mb-3 g-col-12 g-col-md-8">
                             {{-- Input del imagen logo --}}
-                            <label for="formFile" class="form-label">Default file input example</label>
+                            <label for="formFile" class="form-label">
+                                @lang('Change the logo of the app')
+                            </label>
                             <input class="form-control" type="file" id="formFile" name="logo" accept="image/png" onchange="previewImage(event, '#imgPreview', '#preview_image')">
                             @error('logo')
                                 <small id="message_errors" class="text-danger">*{{ $message }}</small>
@@ -51,14 +55,18 @@
                         </div>
                         <div class="mb-3 g-col-12 g-col-md-6 text-center">
                             {{-- imagen preview del thema --}}
-                            <label for="select_theme" class="form-label d-block">Image preview of theme</label>
+                            <label for="select_theme" class="form-label d-block">
+                                @lang('Image preview of theme')
+                            </label>
                             <img width="300px" height="300px" src="{{ asset('images/themes/theme_'.$setting->theme.'.png')}}" alt="" id="theme_preview">
                         </div>
                         {{-- Tercera Seccion --}}
                         <div class="mb-3 g-col-12 text-end">
                             <hr>
                             {{-- Botón de Guardar la apariencia de la aplicación --}}
-                            <x-dom.button type="submit" class="btn btn-success disabled" id="btn_appearance"> Save Appearance </x-dom.button>
+                            <x-dom.button type="submit" class="btn btn-success disabled" id="btn_appearance">
+                                @lang('Save') @lang('Appearance')
+                            </x-dom.button>
                         </div>
                     </div>
                 </x-dom.form>

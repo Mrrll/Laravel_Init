@@ -9,7 +9,9 @@
         @break
     @default
         @if ($type != 'hidden')
-            <label class="ms-1" for="{{$id ?? ''}}" class="form-label">{{$label}}</label>
+            <label class="ms-1" for="{{$id ?? ''}}" class="form-label">
+                @lang($label)
+            </label>
         @endif
         <input type="{{$type}}" id="{{$id ?? ''}}" name="{{$name}}" value="{{$value ?? ''}}" placeholder="{{$placeholder ?? ''}}" data-role="{{$datarole ?? ''}}"
         {{isset($readonly) ? $readonly : ''}}

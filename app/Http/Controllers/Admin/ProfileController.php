@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\ProfileRequest;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class ProfileController extends Controller
 {
@@ -33,14 +34,14 @@ class ProfileController extends Controller
             }
             return redirect()->route('profile.edit', $profile)->with('message', [
                 'type' => 'success',
-                'title' => 'Success in saving !',
-                'message' => 'Success in saving your profile.',
+                'title' => Lang::get('Save success').'!',
+                'message' => Lang::get('Success in saving your :name.', ['name' => strtolower(Lang::get('Profile'))]),
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'Error !',
-                'message' => $th,
+                'title' => Lang::get('An unexpected error has occurred').'!',
+                'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
             ]);
         }
     }
@@ -72,14 +73,14 @@ class ProfileController extends Controller
             }
             return redirect()->route('profile.edit', $profile)->with('message', [
                 'type' => 'success',
-                'title' => 'Success in saving !',
-                'message' => 'Success in saving your profile.',
+                'title' => Lang::get('Save success') . '!',
+                'message' => Lang::get('Success in saving your :name.', ['name' => strtolower(Lang::get('Profile'))]),
             ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'Error !',
-                'message' => $th,
+                'title' => Lang::get('An unexpected error has occurred') . '!',
+                'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
             ]);
         }
     }

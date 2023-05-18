@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Lang;
 
 class AuthenticationController extends Controller
 {
@@ -43,21 +44,24 @@ class AuthenticationController extends Controller
             $credentials = $request->safe()->only('email', 'password');
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
-                return redirect()->intended('dashboard');
+                return redirect()->intended('dashboard')->with('message', [
+                    'type' => 'success',
+                    'title' => Lang::get('You have registered') . '!',
+                    'message' => Lang::get('Before proceeding, please check your email for a verification link.'),
+                ]);;
             }
             return redirect()
                 ->back()
                 ->with('message', [
                     'type' => 'danger',
-                    'title' => 'The credentials are not correct !',
-                    'message' => 'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
+                    'title' => Lang::get('An unexpected error has occurred') .'!',
+                    'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
                 ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'Failed to register !',
-                'message' =>
-                    'Error registering check the data and try again later if the problem persists contact your administrator.',
+                'title' => Lang::get('An unexpected error has occurred') . '!',
+                'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
             ]);
         }
     }
@@ -96,15 +100,14 @@ class AuthenticationController extends Controller
                 ->back()
                 ->with('message', [
                     'type' => 'danger',
-                    'title' => 'The credentials are not correct !',
-                    'message' => 'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
+                    'title' => Lang::get('auth.denied').'!',
+                    'message' => Lang::get('auth.failed'),
                 ]);
         } catch (\Throwable $th) {
             return back()->with('message', [
                 'type' => 'danger',
-                'title' => 'The credentials are not correct !',
-                'message' =>
-                    'The credentials are not correct check the data and try again later if the problem persists contact your administrator.',
+                'title' => Lang::get('An unexpected error has occurred') . '!',
+                'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
             ]);
         }
     }

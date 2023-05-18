@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Lang;
 
 class ProfileRequest extends FormRequest
 {
@@ -46,5 +47,29 @@ class ProfileRequest extends FormRequest
         $this->merge([
             'user_id' => auth()->user()->id,
         ]);
+    }
+
+    /**
+     * The function returns an array of lowercase attribute names with their corresponding translated
+     * values.
+     *
+     * @return An array of attribute names where each attribute name is a lowercase version of the
+     * corresponding translated string obtained using the Laravel Lang facade. The attribute names are
+     * "first_name", "second_name", "identify", "country", "city", "municipality", "address",
+     * "first_phone", and "second_phone".
+     */
+    public function attributes()
+    {
+        return [
+            "first_name" => strtolower(Lang::get('First Name')),
+            "second_name" => strtolower(Lang::get('Second Name')),
+            "identify" => strtolower(Lang::get('Identity')),
+            "country" => strtolower(Lang::get('Country')),
+            "city" => strtolower(Lang::get('City')),
+            "municipality" => strtolower(Lang::get('Municipality')),
+            "address" => strtolower(Lang::get('Address')),
+            "first_phone" => strtolower(Lang::get('First phone')),
+            "second_phone" => strtolower(Lang::get('Second phone')),
+        ];
     }
 }

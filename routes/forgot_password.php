@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
 
 /*
@@ -28,17 +29,17 @@ Route::post('/forgot-password', function (Request $request) {
     ? back()->with([
       'status' => __($status),
       'message' => [
-        'type' => 'info',
-        'title' => 'Message sent !',
-        'message' => 'The message was delivered, follow the instructions to change the password.'
+        'type' => 'success',
+        'title' => Lang::get('Message sent').'!',
+        'message' => Lang::get('The message was delivered, follow the instructions to change the password.')
       ],
     ])
     : back()->withErrors([
         'email' => __($status),
         'message' => [
         'type' => 'danger',
-        'title' => 'The message could not be sent !',
-        'message' => 'The message could not be delivered, check your settings and if the problem persists, contact your administrator.'
+        'title' => Lang::get('The message could not be delivered').'!',
+        'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.')
       ],
     ]);
 })
@@ -81,21 +82,21 @@ Route::post('/reset-password', function (Request $request) {
 
   return $status === Password::PASSWORD_RESET
     ? redirect()
-      ->route('dashboard')
+      ->route('login')
       ->with([
         'status', __($status),
         'message' => [
         'type' => 'success',
-        'title' => 'Password changed !',
-        'message' => 'The password has been changed successfully, you can enter with your new password.'
+        'title' => Lang::get('Password changed').'!',
+        'message' => Lang::get('The password has been changed successfully, you can enter with your new password.')
       ],
         ])
     : back()->withErrors([
         'email' => [__($status)],
         'message' => [
         'type' => 'dander',
-        'title' => 'The password could not be changed !',
-        'message' => 'The password could not be changed, check your data and try again later, if the problem persists, contact your administrator.'
+        'title' => Lang::get('The password could not be changed').'!',
+        'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.')
       ],
     ]);
 })

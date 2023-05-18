@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\Setting;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Lang;
 
 class AppearanceRequest extends FormRequest
 {
@@ -39,5 +40,22 @@ class AppearanceRequest extends FormRequest
         $this->merge([
             'user_id' => auth()->user()->id,
         ]);
+    }
+
+    /**
+     * The function returns an array of attributes including the theme and logo, with their values
+     * being the lowercase version of their corresponding language translations.
+     *
+     * @return An array with two key-value pairs. The first key is "theme" and the value is the
+     * lowercase translation of the string "Theme" using the Laravel Lang facade. The second key is
+     * "logo" and the value is the lowercase translation of the string "Logo" using the Laravel Lang
+     * facade.
+     */
+    public function attributes()
+    {
+        return [
+            "theme" => strtolower(Lang::get('Theme')),
+            "logo" => strtolower(Lang::get('Logo')),
+        ];
     }
 }

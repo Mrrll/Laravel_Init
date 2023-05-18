@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Facades\Lang;
+
 trait LinksNav
 {
     public static function LinksPages()
@@ -9,7 +11,7 @@ trait LinksNav
         return
         [
             [
-                'name' => 'Welcome',
+                'name' => Lang::get('Welcome'),
                 'slug' => 'welcome',
                 'type' => 'link',
                 'route' => route('welcome'),
@@ -19,7 +21,7 @@ trait LinksNav
                 'icono_color' => ''
             ],
             [
-                'name' => 'About',
+                'name' => Lang::get('About'),
                 'slug' => 'about',
                 'type' => 'link',
                 'route' => '',
@@ -77,7 +79,7 @@ trait LinksNav
         return
         [
             [
-                'name' => 'Dashboard',
+                'name' => Lang::get('Dashboard'),
                 'slug' => 'dashboard',
                 'type' => 'link',
                 'route' => route('dashboard'),
@@ -88,7 +90,7 @@ trait LinksNav
                 'tooltip' => [
                     'position' => 'right',
                     'class' => 'custom-tooltip',
-                    'text' => 'App main panel'
+                    'text' => 'App main dashboard'
                 ]
             ],
             [
@@ -187,7 +189,7 @@ trait LinksNav
         return
         [
             [
-                'name' => 'Sign In',
+                'name' => Lang::get('Sign In'),
                 'slug' => 'sign-in',
                 'route' => request()->routeIs('welcome') ? '' : route('login'),
                 'active' => request()->routeIs('login') ? 'active disabled' : '',
@@ -197,7 +199,7 @@ trait LinksNav
                 'class' => 'nav-link'
             ],
             [
-                'name' => 'Sign Up',
+                'name' => Lang::get('Sign Up'),
                 'slug' => 'sign-up',
                 'route' => request()->routeIs('welcome') ? '' : route('register'),
                 'active' => request()->routeIs('register') ? 'active disabled' : '',

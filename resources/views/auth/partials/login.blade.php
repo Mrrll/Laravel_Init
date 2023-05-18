@@ -5,9 +5,8 @@
 <div class="text-end mt-2">
     <small class="text-primary me-1">
         <x-dom.button type='modal' name="forgot-password" >
-            Forgot your password?
+            @lang('Forgot Your Password?')
         </x-dom.button>
-        {{-- <a href="#">Forgot your password?</a> --}}
     </small>
 </div>
 <div class="mb-0">
@@ -17,7 +16,8 @@
 <div class="mt-3 mb-1 text-center">
     <div class="form-check form-switch d-flex justify-content-center">
         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="remember">
-        <label class="form-check-label ms-1" for="flexSwitchCheckDefault">Remember me !!!</label>
+        <label class="form-check-label ms-1" for="flexSwitchCheckDefault">
+            @lang('Remember Me')
+        </label>
     </div>
 </div>
-

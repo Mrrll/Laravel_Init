@@ -9,9 +9,12 @@
                     <x-images.avatar></x-images.avatar>
                 @endif
                 <div>
+
                     <span>{{ auth()->user()->name }}</span>
                     <x-dom.button type="link" :route="isset(auth()->user()->profile) ? route('profile.edit', auth()->user()->profile)  :  route('profile.create')">
-                        <small>Profile</small>
+                        <small>
+                            @lang('Profile')
+                        </small>
                     </x-dom.button>
                 </div>
             </div>
@@ -60,7 +63,7 @@
                     ]">
                         <x-images.dashboard.setting />
                         <span>
-                            Setting
+                            @lang('Setting')
                         </span>
                     </x-dom.button>
                 </li>
@@ -72,7 +75,7 @@
                     ]">
                         <x-images.dashboard.logout />
                         <span>
-                            Logout
+                            @lang('Logout')
                         </span>
                     </x-dom.button>
                 </li>

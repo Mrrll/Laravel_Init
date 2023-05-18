@@ -17,20 +17,7 @@ class Profile extends Model
     mass assignable. If the `` property is not set, all attributes will be guarded by
     default. */
     protected $guarded = [];
-
-    /**
-     * This function returns the name of the route key for a model in PHP.
-     *
-     * @return the string 'first_name'. This function is used in Laravel to override the default
-     * primary key column name used in route model binding. By default, Laravel uses the 'id' column as
-     * the primary key for route model binding. However, by defining this function in a model, we can
-     * use a different column as the primary key for route model binding. In this case, the '
-     */
-    public function getRouteKeyName()
-    {
-        return 'first_name';
-    }
-
+    
     /**
      * This function defines a polymorphic relationship between the current model and the Image model
      * in PHP.

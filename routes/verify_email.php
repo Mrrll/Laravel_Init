@@ -29,17 +29,15 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
 
     return back()->with('message', [
-      'type' => 'success',
-      'title' => 'Success !',
-      'message' =>
-        'Verification link has been sent successfully! Check your inbox.',
+        'type' => 'success',
+        'title' => Lang::get('Notification sent') . '!',
+        'message' => Lang::get('The link to verify your email address has been sent. Check your inbox.'),
     ]);
   } catch (\Throwable $th) {
     return back()->with('message', [
       'type' => 'danger',
-      'title' => 'Error !',
-      'message' =>
-        'An error has occurred, check the data and try again if it is not solved, contact your administrator.',
+      'title' => Lang::get('An unexpected error has occurred') . '!',
+      'message' => Lang::get('Check your settings and if the problem persists, contact your administrator.'),
     ]);
   }
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');

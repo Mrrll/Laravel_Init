@@ -1,9 +1,11 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Profile')
+@section('title', trans('Profile'))
 @section('content')
     <main class="container-fluid main-dashboard">
-        <h1>Profile</h1>
+        <h1>
+            @lang('Profile')
+        </h1>
         <x-dom.form :route="route('profile.store')" method="post">
             <div class="grid align-items-center" style="--bs-gap: 1rem;"">
                 {{-- Primera Seccion --}}
@@ -20,7 +22,9 @@
                 </div>
                 <div class="mb-3 g-col-12 g-col-md-8">
                     {{-- Input del imagen logo --}}
-                    <label for="avatarFile" class="form-label">Change your avatar</label>
+                    <label for="avatarFile" class="form-label">
+                        @lang('Change your avatar')
+                    </label>
                     <input class="form-control" type="file" id="avatarFile" name="avatar" accept="image/png"
                         onchange="previewImage(event, '#avatarPreview', '#preview_avatar')">
                     @error('avatar')
@@ -70,7 +74,7 @@
                 <div class="mb-3 g-col-12 text-end">
                     <hr>
                     {{-- Botón de Guardar el perfil de usuario --}}
-                    <x-dom.button type="submit" class="btn btn-success disabled" id="btn_profile"> Save Profile
+                    <x-dom.button type="submit" class="btn btn-success disabled" id="btn_profile"> @lang('Save') @lang('Profile')
                     </x-dom.button>
                 </div>
             </div>
