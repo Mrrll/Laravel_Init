@@ -35,8 +35,12 @@ class SettingController extends Controller
         try {
             if (isset($request->validated()['logo'])) {
                 $setting = Setting::create($request->safe()->except('logo'));
-                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
-                $setting->image()->create(['url' => $url]);
+                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo' . '-' . $setting->user->id);
+                if ($setting->image->first()) {
+                    $setting->image()->update(['url' => $url]);
+                } else {
+                    $setting->image()->create(['url' => $url]);
+                }
             } else {
                 $setting = Setting::create($request->validated());
             }
@@ -90,7 +94,7 @@ class SettingController extends Controller
         try {
             if (isset($request->validated()['logo'])) {
                 $setting->update($request->safe()->except('logo'));
-                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo');
+                $url = Setting::Upload($request, 'logo', 'images/logo', 'logo' . '-' . $setting->user->id);
                 if ($setting->image->first()) {
                     $setting->image()->update(['url' => $url]);
                 } else {
