@@ -272,16 +272,17 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 1. Acción => `route`
 2. método => `method`
 3. Enctype => `type`
+3. Validación => `valid`
 
 >Ejemplo del form.
 
 ```php
-<x-dom.form :route="route('welcome')" method="delete">
+<x-dom.form :route="route('welcome')" method="delete" :valid="false">
     Elementos del formulario
 </x-dom.form>
 ```
 
-**El elemento form tiene por defecto el `method="get"` y el atributo `enctype="multipart/form-data"`.**
+**El elemento form tiene por defecto el `method="get"` y el atributo `enctype="multipart/form-data"` y una función JS `onsubmit="return validateForm(event)"` que controlamos con el atributo `valid` que es `true` por defecto que bloquea el envió del formulario.**
 
 [Subir](#top)
 

@@ -4,11 +4,7 @@
     <main class="container-fluid main-dashboard center_container">
         <div class="grid align-items-center justify-items-center" style="--bs-gap: 1rem;">
             <div class="g-col-12 mt-2 text-center">
-                @if (auth()->user() && auth()->user()->setting->image->first())
-                    <img height="100px" width="100px" src="{{ asset(auth()->user()->setting->image->first()->url) }}">
-                @else
-                    <x-images.logo height="100px" width="100px"></x-images.logo>
-                @endif
+                <x-images.logo height="100px" width="100px"></x-images.logo>
             </div>
             <div class="g-col-12 mt-3 ps-3 pe-3">
                 <x-dom.card>

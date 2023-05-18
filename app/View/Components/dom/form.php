@@ -11,19 +11,22 @@ class form extends Component
     public
     $route,
     $method,
-    $type;
+    $type,
+    $valid;
     /**
      * Create a new component instance.
      */
     public function __construct(
         $route,
         $method = 'GET',
-        $type = 'multipart/form-data'
+        $type = 'multipart/form-data',
+        $valid = true
     )
     {
         $this->route = $route;
         $this->method = $method;
         $this->type = $type;
+        $this->valid = $valid;
     }
 
     /**
