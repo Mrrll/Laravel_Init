@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Lang;
 
 class LoginRequest extends FormRequest
 {
+    protected $errorBag = 'login';
     /**
      * Determine if the user is authorized to make this request.
      */
