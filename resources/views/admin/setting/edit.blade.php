@@ -50,7 +50,6 @@
                             <x-dom.select id="select_theme" class="form-select-lg mb-3"  name="theme" onchange="SelectTheme(event, 'Select a theme')" title="Select a theme" label="Application theme">
                                 <x-dom.select.option value="light" selected="{{$setting->theme}}" id="select_theme">Light</x-dom.select.option>
                                 <x-dom.select.option value="dark" selected="{{$setting->theme}}" id="select_theme">Dark</x-dom.select.option>
-                                <x-dom.select.option value="peyra" selected="{{$setting->theme}}" id="select_theme">Peyra</x-dom.select.option>
                             </x-dom.select>
                         </div>
                         <div class="mb-3 g-col-12 g-col-md-6 text-center">

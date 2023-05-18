@@ -15,7 +15,7 @@
 - [Componente select](#item11)
 - [Links Navegadores](#item12)
 
-**`Nota:` App de Facturación, Tienda Online, Presupuestos Creada con PHP8^, Laravel 10, Blade y Bootstrap 5.**
+**`Nota:` Proyecto Inicial Creado con PHP8^, Laravel 10, Blade y Bootstrap 5.**
 
 <a name="item1"></a>
 

@@ -23,7 +23,7 @@ class AppearanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'theme' => 'string|in:peyra,dark,light',
+            'theme' => 'string|in:dark,light',
             'logo' => 'image|mimes:png',
             'user_id' => 'required|integer'
         ];
