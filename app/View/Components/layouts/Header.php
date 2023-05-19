@@ -13,7 +13,8 @@ class Header extends Component
 
     public
     $links_pages,
-    $links_auths;
+    $links_auths,
+    $links_app;
     /**
      * Create a new component instance.
      */
@@ -21,6 +22,7 @@ class Header extends Component
     {
         $this->links_pages = $this->LinksPages();
         $this->links_auths = $this->LinksAuth();
+        $this->links_app = $this->LinksApp();
     }
 
     /**

@@ -7,9 +7,9 @@
     <title>@yield('title')</title>
     @auth
         @if(auth()->user()->setting && auth()->user()->setting->image->first())
-            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset(auth()->user()->setting->image->first()->url) ?? asset('images/logo/MyBilling.png')}}">
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset(auth()->user()->setting->image->first()->url) ?? asset('images/logo/logo.png')}}">
         @else
-            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/logo/MyBilling.png')}}">
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/logo/logo.png')}}">
         @endif
     @endauth
     @guest

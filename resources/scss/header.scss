@@ -3,6 +3,10 @@ header {
 }
 header > nav {
     position: fixed !important;
-    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-available;
     z-index: 100;
+}
+header .nav-link {
+    cursor: pointer;
 }
