@@ -10,3 +10,8 @@ header > nav {
 header .nav-link {
     cursor: pointer;
 }
+@media (max-width: 992px) {
+    header > nav {
+        position: relative !important;
+    }
+}
