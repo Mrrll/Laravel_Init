@@ -1,5 +1,5 @@
 <input type="checkbox" id="btn_menu">
-<aside class="aside-dashboard bg-light border-end bg-body-tertiary d-none d-md-grid">
+<aside class="aside-dashboard bg-light border-end bg-body-tertiary d-none d-lg-grid">
     <div class="aside">
         <div class="menu-header">
             <div class="profile">

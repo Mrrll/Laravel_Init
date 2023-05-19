@@ -68,7 +68,9 @@
                         @foreach ($links_app as $link_app)
                             <li
                             @if ($link_app['type'] == 'dropdown' || $link_app['type'] == 'collapse')
-                                class="drop{{$link_app['position']}} dropdown-parent nav-item"
+                                class="drop{{$link_app['position']}} dropdown-parent nav-item d-lg-none"
+                            @else
+                                class="nav-item d-lg-none"
                             @endif
                             >
                             @if ($link_app['type'] == 'collapse' || $link_app['type'] == 'dropdown')
@@ -84,7 +86,9 @@
                                     @else
                                         {{ $link_app['icono'] }}
                                     @endif
-                                    {{ $link_app['name'] }}
+                                    <span>
+                                        {{ $link_app['name'] }}
+                                    </span>
                                 </x-dom.button>
                                 <ul class="{{$link_app['type'] == 'collapse' ? 'collapse' : ''}} dropdown-child dropdown-menu mt-2-5" id="{{$link_app['slug']}}">
                                     @foreach ($link_app['items'] as $item)
@@ -98,7 +102,7 @@
                              @else
                                 <x-dom.button
                                 type="{{ $link_app['type']}}"
-                                class="{{$link_app['class']}} {{$link_app['active']}}"
+                                class="{{$link_app['class']}} {{$link_app['active']}} nav-link"
                                 name="{{$link_app['slug']}}"
                                 >
                                     @if (is_string($link_app['icono']))
@@ -108,7 +112,9 @@
                                     @else
                                         {{ $link_app['icono'] }}
                                     @endif
-                                    {{ $link_app['name'] }}
+                                    <span>
+                                        {{ $link_app['name'] }}
+                                    </span>
                                 </x-dom.button>
                              @endif
                             </li>
@@ -129,7 +135,7 @@
                     </ul>
                 @endguest
                 @auth
-                 <ul class="navbar-nav">
+                 <ul class="navbar-nav d-lg-none">
                     <li class="nav-item">
                         <x-dom.button type="link" :route="isset(auth()->user()->setting) ? route('setting.edit', auth()->user()->setting)  :  route('setting.create')" class="nav-link {{request()->routeIs('setting.*') ? 'active disabled' : ''}} only-icon">
                         <x-images.dashboard.setting />
@@ -138,7 +144,7 @@
                         </span>
                     </x-dom.button>
                     </li>
-                    <li class="nav-item mt-2">
+                    <li class="nav-item">
                         <x-dom.button type="link" :route="route('logout')" class="nav-link only-icon" >
                         <x-images.dashboard.logout />
                         <span>
